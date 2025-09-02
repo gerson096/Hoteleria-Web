@@ -1,0 +1,71 @@
+@model HoteleriaGes.Models.Habitacion
+@{
+    ViewData["Title"] = "Agregar Habitación";
+}
+<style>
+    body {
+        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .form-container {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        max-width: 400px;
+        margin: 60px auto;
+        padding: 40px 30px;
+    }
+    .form-container h2 {
+        color: #2980b9;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .form-container label {
+        font-weight: bold;
+        color: #34495e;
+    }
+    .form-container input, .form-container select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .form-container button {
+        width: 100%;
+        padding: 12px;
+        background: #e67e22;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .form-container button:hover {
+        background: #d35400;
+    }
+    .form-container .error {
+        color: #e74c3c;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+</style>
+<div class="form-container">
+    <h2>Agregar Habitación</h2>
+    <form method="post">
+        <label>Número:</label>
+        <input asp-for="Numero" required />
+        <label>Tipo:</label>
+        <input asp-for="Tipo" required />
+        <label>Precio:</label>
+        <input asp-for="Precio" type="number" step="0.01" required />
+        <label>Estado:</label>
+        <select asp-for="Estado" required>
+            <option value="disponible">Disponible</option>
+            <option value="ocupada">Ocupada</option>
+        </select>
+        <button type="submit">Guardar</button>
+        <div class="error">@ViewBag.Error</div>
+    </form>
+</div>

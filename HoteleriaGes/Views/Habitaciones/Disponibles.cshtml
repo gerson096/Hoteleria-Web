@@ -1,0 +1,77 @@
+@model List<HoteleriaGes.Models.Habitacion>
+@{
+    ViewData["Title"] = "Habitaciones Disponibles";
+}
+<style>
+    body {
+        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .dashboard {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        padding: 40px 30px;
+    }
+    .dashboard h2 {
+        color: #2980b9;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .habitaciones-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+    }
+    .habitaciones-table th, .habitaciones-table td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+    .habitaciones-table th {
+        background: #2980b9;
+        color: #fff;
+    }
+    .habitaciones-table tr:hover {
+        background: #f2f6fc;
+    }
+    .btn-seleccionar {
+        background: #1abc9c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .btn-seleccionar:hover {
+        background: #16a085;
+    }
+</style>
+<div class="dashboard">
+    <h2>Habitaciones Disponibles</h2>
+    <table class="habitaciones-table">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var h in Model)
+            {
+                <tr>
+                    <td>@h.Numero</td>
+                    <td>@h.Tipo</td>
+                    <td>$@h.Precio</td>
+                    <td><button class="btn-seleccionar">Seleccionar</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!-- Aquí puedes agregar más apartados y funciones del dashboard -->
+</div>

@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (Context.Session.GetString("Usuario") == null)
+{
+    <script>window.location.href = '/Auth/Login';</script>
+}
+else
+{
+    <style>
+        .dashboard-btn {
+            display:inline-block; margin-top:30px; padding:16px 32px; background:#2980b9; color:#fff; border-radius:8px; font-size:20px; text-decoration:none; box-shadow:0 4px 16px rgba(31,38,135,0.15); transition:background 0.3s;
+        }
+        .dashboard-btn:hover { background:#1abc9c; }
+        .admin-btn { background:#e67e22; margin-left:20px; }
+        .admin-btn:hover { background:#d35400; }
+        body { background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        h2 { color: #2980b9; }
+    </style>
+    <div style="text-align:center; margin-top:60px;">
+        <h2>Bienvenido al Dashboard del Hotel</h2>
+        @if (Context.Session.GetString("Rol") == "admin")
+        {
+            <h3 style="color:#e67e22;">Bienvenido, @Context.Session.GetString("Usuario") (Administrador)</h3>
+            <a href="/Reportes/Ocupacion" class="dashboard-btn admin-btn">Ver Reporte de Ocupación</a>
+            <a href="/Habitaciones/Agregar" class="dashboard-btn admin-btn">Agregar Habitación</a>
+            <div style="margin-top:40px;">
+                <h4 style="color:#2980b9;">Vista Previa de Ocupaciones</h4>
+                @{
+                    var ocupaciones = new List<dynamic>();
+                    using (var conn = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;database=hoteleriaweb;user=root;password=;"))
+                    {
+                        conn.Open();
+                        var cmd = new MySql.Data.MySqlClient.MySqlCommand(@"SELECT h.numero, h.tipo, r.fecha_entrada, r.fecha_salida, DATEDIFF(r.fecha_salida, r.fecha_entrada) AS dias FROM Habitaciones h JOIN Reservas r ON h.id = r.habitacion_id WHERE r.estado = 'activa' LIMIT 5", conn);
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            ocupaciones.Add(new {
+                                Numero = reader.GetString("numero"),
+                                Tipo = reader.GetString("tipo"),
+                                FechaEntrada = reader.GetDateTime("fecha_entrada"),
+                                FechaSalida = reader.GetDateTime("fecha_salida"),
+                                Dias = reader.GetInt32("dias")
+                            });
+                        }
+                    }
+                }
+                <table class="reporte-table" style="margin:0 auto;">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Tipo</th>
+                            <th>Entrada</th>
+                            <th>Salida</th>
+                            <th>Días</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var o in ocupaciones)
+                        {
+                            <tr>
+                                <td>@o.Numero</td>
+                                <td>@o.Tipo</td>
+                                <td>@o.FechaEntrada.ToShortDateString()</td>
+                                <td>@o.FechaSalida.ToShortDateString()</td>
+                                <td>@o.Dias</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        @if (Context.Session.GetString("Rol") == "cliente")
+        {
+            <h3 style="color:#2980b9;">Bienvenido, @Context.Session.GetString("Usuario") (Cliente)</h3>
+            <a href="/Reservas/Crear" class="dashboard-btn">Reservar Habitación</a>
+            <div style="margin-top:40px;">
+                <h4 style="color:#2980b9;">Tus Reservas</h4>
+                @{
+                    var reservas = new List<dynamic>();
+                    using (var conn = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;database=hoteleriaweb;user=root;password=;"))
+                    {
+                        conn.Open();
+                        var correo = Context.Session.GetString("Usuario");
+                        var cmd = new MySql.Data.MySqlClient.MySqlCommand(@"SELECT h.numero, h.tipo, r.fecha_entrada, r.fecha_salida, DATEDIFF(r.fecha_salida, r.fecha_entrada) AS dias, h.precio, (DATEDIFF(r.fecha_salida, r.fecha_entrada) * h.precio) AS total FROM Habitaciones h JOIN Reservas r ON h.id = r.habitacion_id JOIN Clientes c ON r.cliente_id = c.id WHERE c.correo = @correo", conn);
+                        cmd.Parameters.AddWithValue("@correo", correo);
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            reservas.Add(new {
+                                Numero = reader.GetString("numero"),
+                                Tipo = reader.GetString("tipo"),
+                                FechaEntrada = reader.GetDateTime("fecha_entrada"),
+                                FechaSalida = reader.GetDateTime("fecha_salida"),
+                                Dias = reader.GetInt32("dias"),
+                                Precio = reader.GetDecimal("precio"),
+                                Total = reader.GetDecimal("total")
+                            });
+                        }
+                    }
+                }
+                <table class="reporte-table" style="margin:0 auto;">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Tipo</th>
+                            <th>Entrada</th>
+                            <th>Salida</th>
+                            <th>Noches</th>
+                            <th>Precio/Noche</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var r in reservas)
+                        {
+                            <tr>
+                                <td>@r.Numero</td>
+                                <td>@r.Tipo</td>
+                                <td>@r.FechaEntrada.ToShortDateString()</td>
+                                <td>@r.FechaSalida.ToShortDateString()</td>
+                                <td>@r.Dias</td>
+                                <td>$@r.Precio</td>
+                                <td>$@r.Total</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        <a href="/Habitaciones/Disponibles" class="dashboard-btn">Ver Habitaciones Disponibles</a>
+    </div>
+}

@@ -1,0 +1,75 @@
+@{
+    ViewData["Title"] = "Login";
+}
+<style>
+    body {
+        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .login-container {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        max-width: 400px;
+        margin: 80px auto;
+        padding: 40px 30px;
+    }
+    .login-container h2 {
+        color: #2980b9;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .login-container label {
+        font-weight: bold;
+        color: #34495e;
+    }
+    .login-container input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .login-container button {
+        width: 100%;
+        padding: 12px;
+        background: #2980b9;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .login-container button:hover {
+        background: #1abc9c;
+    }
+    .login-container a {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        color: #2980b9;
+        text-decoration: none;
+    }
+    .login-container .error {
+        color: #e74c3c;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+</style>
+
+@{
+    Layout = null;
+}
+<div class="login-container">
+    <h2>Bienvenido al Hotel</h2>
+    <form method="post">
+        <label>Correo:</label>
+        <input type="email" name="correo" required />
+        <label>Contraseña:</label>
+        <input type="password" name="contraseña" required />
+        <button type="submit">Ingresar</button>
+        <div class="error">@ViewBag.Error</div>
+    </form>
+    <a href="/Auth/Registrar">¿No tienes cuenta? Regístrate</a>
+</div>

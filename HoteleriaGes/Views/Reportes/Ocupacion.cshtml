@@ -1,0 +1,66 @@
+@model List<dynamic>
+@{
+    ViewData["Title"] = "Reporte de Ocupación";
+}
+<style>
+    body {
+        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .reporte-container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        padding: 40px 30px;
+    }
+    .reporte-container h2 {
+        color: #2980b9;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .reporte-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+    }
+    .reporte-table th, .reporte-table td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+    .reporte-table th {
+        background: #2980b9;
+        color: #fff;
+    }
+    .reporte-table tr:hover {
+        background: #f2f6fc;
+    }
+</style>
+<div class="reporte-container">
+    <h2>Reporte de Ocupación de Habitaciones</h2>
+    <table class="reporte-table">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Tipo</th>
+                <th>Fecha Entrada</th>
+                <th>Fecha Salida</th>
+                <th>Días Ocupados</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var o in Model)
+            {
+                <tr>
+                    <td>@o.Numero</td>
+                    <td>@o.Tipo</td>
+                    <td>@o.FechaEntrada.ToShortDateString()</td>
+                    <td>@o.FechaSalida.ToShortDateString()</td>
+                    <td>@o.Dias</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

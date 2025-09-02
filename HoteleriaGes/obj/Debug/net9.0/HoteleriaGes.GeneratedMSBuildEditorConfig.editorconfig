@@ -1,0 +1,75 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HoteleriaGes
+build_property.RootNamespace = HoteleriaGes
+build_property.ProjectDir = C:\xampp\htdocs\hoteleriaweb\HoteleriaGes\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\xampp\htdocs\hoteleriaweb\HoteleriaGes
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Auth/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3RyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Habitaciones/Agregar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXEFncmVnYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Habitaciones/Disponibles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXERpc3BvbmlibGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Pagos/Realizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnb3NcUmVhbGl6YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Reportes/Ocupacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcT2N1cGFjaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Reservas/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/xampp/htdocs/hoteleriaweb/HoteleriaGes/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-0q03ax7hm3

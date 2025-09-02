@@ -1,0 +1,118 @@
+body {
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.dashboard-btn {
+    display:inline-block; margin-top:30px; padding:16px 32px; background:#2980b9; color:#fff; border-radius:8px; font-size:20px; text-decoration:none; box-shadow:0 4px 16px rgba(31,38,135,0.15); transition:background 0.3s;
+}
+.dashboard-btn:hover { background:#1abc9c; }
+.admin-btn { background:#e67e22; margin-left:20px; }
+.admin-btn:hover { background:#d35400; }
+.sidebar {
+    position: fixed; top: 0; left: 0; height: 100vh; width: 220px; background: linear-gradient(135deg, #2980b9 0%, #1abc9c 100%); color: #fff; padding-top: 80px; box-shadow: 2px 0 12px rgba(31,38,135,0.08); z-index: 1000;
+}
+.sidebar a {
+    display: block; color: #fff; padding: 18px 30px; text-decoration: none; font-size: 18px; border-bottom: 1px solid rgba(255,255,255,0.08); transition: background 0.2s;
+}
+.sidebar a:hover { background: #e67e22; color: #fff; }
+.main-content { margin-left: 220px; padding: 30px 20px; }
+@media (max-width: 900px) {
+    .sidebar { width: 100px; padding-top: 60px; }
+    .sidebar a { font-size: 14px; padding: 12px 10px; }
+    .main-content { margin-left: 100px; }
+}
+.login-container, .register-container, .form-container, .pago-container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 40px 30px;
+}
+.login-container h2, .register-container h2, .form-container h2, .pago-container h2 {
+    color: #2980b9;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.login-container label, .register-container label, .form-container label, .pago-container label {
+    font-weight: bold;
+    color: #34495e;
+}
+.login-container input, .register-container input, .form-container input, .pago-container input,
+.login-container select, .register-container select, .form-container select, .pago-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.login-container button, .register-container button, .form-container button, .pago-container button {
+    width: 100%;
+    padding: 12px;
+    background: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.login-container button:hover, .register-container button:hover, .form-container button:hover, .pago-container button:hover {
+    background: #1abc9c;
+}
+.register-container button, .form-container button, .pago-container button { background: #e67e22; }
+.register-container button:hover, .form-container button:hover, .pago-container button:hover { background: #d35400; }
+.login-container a, .register-container a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #2980b9;
+    text-decoration: none;
+}
+.login-container .error, .register-container .error, .form-container .error {
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.dashboard, .reserva-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    padding: 40px 30px;
+}
+.dashboard h2, .reserva-container h2 {
+    color: #2980b9;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.habitaciones-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+.habitaciones-table th, .habitaciones-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+.habitaciones-table th {
+    background: #2980b9;
+    color: #fff;
+}
+.habitaciones-table tr:hover {
+    background: #f2f6fc;
+}
+.btn-seleccionar, .btn-reservar {
+    background: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.btn-seleccionar:hover, .btn-reservar:hover {
+    background: #16a085;
+}

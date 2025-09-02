@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HoteleriaGes</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/hotel.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HoteleriaGes.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HoteleriaGes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <style>
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 220px;
+            background: linear-gradient(135deg, #2980b9 0%, #1abc9c 100%);
+            color: #fff;
+            padding-top: 80px;
+            box-shadow: 2px 0 12px rgba(31,38,135,0.08);
+            z-index: 1000;
+        }
+        .sidebar a {
+            display: block;
+            color: #fff;
+            padding: 18px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: background 0.2s;
+        }
+        .sidebar a:hover {
+            background: #e67e22;
+            color: #fff;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 30px 20px;
+        }
+    /* Responsivo movido a hotel.css */
+    </style>
+    <div class="sidebar">
+        <a href="/Home/Index">Inicio</a>
+        <a href="/Habitaciones/Disponibles">Habitaciones</a>
+        @if (Context.Session.GetString("Rol") == "cliente")
+        {
+            <a href="/Reservas/Crear">Reservar</a>
+        }
+        @if (Context.Session.GetString("Rol") == "admin")
+        {
+            <a href="/Habitaciones/Agregar">Agregar Habitación</a>
+            <a href="/Reportes/Ocupacion">Reporte de Ocupación</a>
+        }
+        <a href="/Auth/Login">Cerrar Sesión</a>
+    </div>
+    <div class="main-content">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - HoteleriaGes - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
